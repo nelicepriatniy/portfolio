@@ -8,6 +8,7 @@ p, h1, a, li, ul {
   margin: 0;
   padding: 0;
   font-family: "Montserrat", sans-serif;
+  text-decoration: none;
 }
 
 .container {
@@ -554,6 +555,8 @@ footer img {
   }
 
   footer {
+    width: 100%;
+    overflow: hidden;
     margin: 0;
   }
   footer img {
