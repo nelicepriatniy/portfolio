@@ -33,7 +33,7 @@ document.addEventListener('scroll', function(){
         let blockClass = element.getAttribute('data-block');
         let block = document.querySelector(blockClass);
         let scroll = offsetPosition(block);
-        if(window.pageYOffset > scroll && window.pageYOffset > (element.offsetHeight+scroll) ) {
+        if(window.pageYOffset+200 > scroll && window.pageYOffset+200 > (element.offsetHeight+scroll) ) {
             element.classList.add('active');
         } else {
             element.classList.remove('active');
