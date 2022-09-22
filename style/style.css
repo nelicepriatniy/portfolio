@@ -9,6 +9,7 @@ p, h1, a, li, ul {
   padding: 0;
   font-family: "Montserrat", sans-serif;
   text-decoration: none;
+  color: white;
 }
 
 .container {
@@ -21,22 +22,17 @@ body {
 }
 
 body::-webkit-scrollbar {
-  width: 5px;
-  /* ширина scrollbar */
+  width: 5px; /* ширина scrollbar */
 }
 
 body::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.096);
-  /* цвет дорожки */
+  background: rgba(0, 0, 0, 0.096); /* цвет дорожки */
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #E5E6A2;
-  /* цвет плашки */
-  border-radius: 20px;
-  /* закругления плашки */
-  border: none;
-  /* padding вокруг плашки */
+  background-color: #E5E6A2; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: none; /* padding вокруг плашки */
 }
 
 header {
@@ -72,6 +68,13 @@ header ul li {
   font-weight: 300;
   margin: 10px 0;
   position: relative;
+  transition: all 0.4s ease;
+}
+header ul li a {
+  transition: all 0.4s ease;
+}
+header ul li a:hover {
+  color: #747C2F;
 }
 header ul li::after {
   content: "";
@@ -92,6 +95,7 @@ header ul li.active::after {
 }
 header ul li:hover {
   cursor: pointer;
+  color: #747C2F;
 }
 header ul li:hover::after {
   content: "";
@@ -435,15 +439,38 @@ footer img {
   width: 100%;
 }
 
+.blog__content {
+  padding: 10px 0;
+}
+.blog__content .blog__abzac {
+  width: 100%;
+  display: flex;
+  margin-bottom: 20px;
+}
+.blog__content .blog__abzac:last-child {
+  margin-bottom: 0;
+}
+.blog__content .blog__abzac:nth-child(odd) img {
+  order: 2;
+}
+.blog__content .blog__abzac:nth-child(odd) p {
+  order: 1;
+}
+.blog__content p {
+  font-size: 20px;
+}
+.blog__content img {
+  width: 50%;
+  margin-right: 20px;
+}
+
 @media (max-width: 1023px) {
   header {
     display: none;
   }
-
   .container {
     width: 100%;
   }
-
   .top {
     width: 100%;
   }
@@ -466,7 +493,6 @@ footer img {
     width: calc((1vh + 1vw) * 4);
     height: calc((1vh + 1vw) * 4);
   }
-
   .about {
     padding: 20px 0;
   }
@@ -485,7 +511,6 @@ footer img {
     font-size: calc((1vh + 1vw) * 4 / 3);
     line-height: 1.3em;
   }
-
   .raboty {
     padding: 10px 0;
   }
@@ -512,7 +537,6 @@ footer img {
     font-size: calc((1vh + 1vw) * 4 / 3);
     line-height: 1.3em;
   }
-
   .contacts {
     padding: 10px 0;
   }
@@ -553,7 +577,6 @@ footer img {
     width: 90vw;
     height: 90vw;
   }
-
   footer {
     width: 100%;
     overflow: hidden;
