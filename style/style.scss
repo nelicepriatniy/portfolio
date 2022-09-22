@@ -434,6 +434,10 @@ header {
         width: 30vw;
         height: 30vw;
         margin-bottom: 100px;
+        transition: all .4s ease;
+        &:hover {
+            scale: 1.1;
+        }
         & h1 {
             font-weight: 700;
             font-size: 44px;
