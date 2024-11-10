@@ -59,55 +59,31 @@ function ContactForm({heading,
       if(formData.name != '' && formData.contact != '') {
         setIsEmptyName([s.normal].join(' '))
         setIsEmptycontact([s.normal].join(' '))
-        // try {
-        //   const response = await fetch('https://wyacheslav.netlify.app/api/sendToTelegram', {
-        //     method: 'POST',
-        //     headers: {
-        //       'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(formData), // Отправляем данные формы в виде JSON
-        //   });
-    
-        //   if (response.ok) {
-        //     setStatus('Сообщение успешно отправлено!');
-        //     setFormData({ name: '', contact: '', message: '' }); // Очищаем поля формы после отправки
-        //   } else {
-        //     setStatus('Ошибка при отправке сообщения.');
-        //   }
-        // } catch (error) {
-        //   setStatus('Ошибка сети.');
-        // }
-
-          // const response = await fetch('/.netlify/functions/sendToTelegram', {
-          //   method: 'POST',
-          //   headers: {
-          //     'Content-Type': 'application/json',
-          //   },
-          //   body: JSON.stringify(formData),
-          // });
-
-          // const result = await response.json();
-          // if (result.success) {
-          //   console.log('Message sent successfully');
-          // } else {
-          //   console.error('Failed to send message:', result.error);
-          // }
-          try {
-            const response = await fetch('/.netlify/functions/sendToTelegram', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify(formData),
-            });
-
-            const result = await response.json();
-            if (result.success) {
-              console.log('Message sent successfully');
-            } else {
-              console.error('Failed to send message:', result.error);
-            }
-          } catch (error) {
-            console.error('Network or server error:', error);
+        try {
+          const response = await fetch('/.netlify/functions/sendToTelegram', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+          });
+        
+          // Проверка, успешен ли ответ
+          if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Ошибка от сервера:', errorText);
+            return;
           }
+        
+          // Попробуем разобрать JSON, только если статус ответа успешен
+          const result = await response.json();
+          
+          if (result.success) {
+            console.log('Message sent successfully');
+          } else {
+            console.error('Failed to send message:', result.error);
+          }
+        } catch (error) {
+          console.error('Network or server error:', error);
+        }
       } else if(formData.name == '' && formData.contact == '') {
         setIsEmptyName([s.red].join(' '))
         setIsEmptycontact([s.red].join(' '))
