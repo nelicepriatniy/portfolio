@@ -27,10 +27,10 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
 
   let data;
 
-  if(lang === 'en') {
-    data = dataEn
-  } else {
+  if(lang === 'ru') {
     data = dataRu
+  } else {
+    data = dataEn
   }
 
 

@@ -18,10 +18,10 @@ export default function Home() {
   const [lang, setLang] = React.useState('en')
   let data;
 
-  if(lang === 'en') {
-    data = dataEn
-  } else {
+  if(lang === 'ru') {
     data = dataRu
+  } else {
+    data = dataEn
   }
 
 
