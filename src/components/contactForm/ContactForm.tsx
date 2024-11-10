@@ -59,24 +59,39 @@ function ContactForm({heading,
       if(formData.name != '' && formData.contact != '') {
         setIsEmptyName([s.normal].join(' '))
         setIsEmptycontact([s.normal].join(' '))
-        try {
-          const response = await fetch('https://wyacheslav.netlify.app/api/sendToTelegram', {
+        // try {
+        //   const response = await fetch('https://wyacheslav.netlify.app/api/sendToTelegram', {
+        //     method: 'POST',
+        //     headers: {
+        //       'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(formData), // Отправляем данные формы в виде JSON
+        //   });
+    
+        //   if (response.ok) {
+        //     setStatus('Сообщение успешно отправлено!');
+        //     setFormData({ name: '', contact: '', message: '' }); // Очищаем поля формы после отправки
+        //   } else {
+        //     setStatus('Ошибка при отправке сообщения.');
+        //   }
+        // } catch (error) {
+        //   setStatus('Ошибка сети.');
+        // }
+
+          const response = await fetch('/.netlify/functions/sendToTelegram', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
             },
-            body: JSON.stringify(formData), // Отправляем данные формы в виде JSON
+            body: JSON.stringify(formData),
           });
-    
-          if (response.ok) {
-            setStatus('Сообщение успешно отправлено!');
-            setFormData({ name: '', contact: '', message: '' }); // Очищаем поля формы после отправки
+
+          const result = await response.json();
+          if (result.success) {
+            console.log('Message sent successfully');
           } else {
-            setStatus('Ошибка при отправке сообщения.');
+            console.error('Failed to send message:', result.error);
           }
-        } catch (error) {
-          setStatus('Ошибка сети.');
-        }
       } else if(formData.name == '' && formData.contact == '') {
         setIsEmptyName([s.red].join(' '))
         setIsEmptycontact([s.red].join(' '))
