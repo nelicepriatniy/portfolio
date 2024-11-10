@@ -25,7 +25,7 @@ export async function POST(req) {
       Контакт: ${contact}
     `;
     if (message) {
-      textMessage += `\n💬 Сообщение: ${message}`;
+      textMessage += `\n Сообщение: ${message}`;
     }
 
     // Отправляем запрос к Telegram API
