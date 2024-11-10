@@ -1,8 +1,6 @@
-// Начинаем с проверки наличия переменных окружения
-const BOT_TOKEN = '7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM';
-const CHAT_ID = '-4547412724';
+const BOT_TOKEN = process.env.BOT_TOKEN;
+const CHAT_ID = process.env.CHAT_ID;
 
-// Проверка значений переменных окружения
 if (!BOT_TOKEN || !CHAT_ID) {
   console.error("Ошибка: Переменные окружения BOT_TOKEN или CHAT_ID не определены.");
   throw new Error("Не удалось найти необходимые переменные окружения для Telegram API.");
@@ -13,18 +11,14 @@ export default async function handler(req, res) {
     try {
       const { name, contact, message } = req.body;
 
-      // Проверка, что обязательные поля присутствуют
       if (!name || !contact) {
         console.error("Ошибка: Параметры 'name' или 'contact' отсутствуют.");
         return res.status(400).json({ error: "Отсутствуют обязательные поля: name или contact." });
       }
 
       const text = `👤 Name: ${name}\n📞 Contact: ${contact}\n📬 Message: ${message || "No message provided"}`;
-      
-      // URL для отправки запроса в Telegram
       const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-      // Данные для отправки
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -36,14 +30,22 @@ export default async function handler(req, res) {
         }),
       });
 
-      // Проверка на ошибки в ответе
-      if (!response.ok) {
-        const errorMessage = await response.text();
-        console.error("Ошибка отправки сообщения в Telegram:", errorMessage);
-        return res.status(500).json({ error: "Ошибка при отправке сообщения в Telegram" });
+      // Обрабатываем и проверяем ответ
+      let responseData;
+      try {
+        responseData = await response.json();
+      } catch (error) {
+        const errorText = await response.text(); // Если ответ не JSON, то читаем текст
+        console.error("Ошибка формата ответа от Telegram:", errorText);
+        return res.status(500).json({ error: "Некорректный ответ от Telegram API", details: errorText });
       }
 
-      // Успешный ответ
+      // Проверяем статус ответа от Telegram
+      if (!response.ok) {
+        console.error("Ошибка отправки сообщения в Telegram:", responseData);
+        return res.status(500).json({ error: "Ошибка при отправке сообщения в Telegram", details: responseData });
+      }
+
       return res.status(200).json({ message: "Сообщение успешно отправлено в Telegram" });
 
     } catch (error) {
