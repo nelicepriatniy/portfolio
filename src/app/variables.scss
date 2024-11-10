@@ -1,7 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @font-face {
   font-family: 'Molot';
   src: url("../../public/fonts/Molot.otf");
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../../public/fonts/MontserratExtraLight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: 'Montserrat';
+  src: url("../../public/fonts/MontserratRegular.ttf");
+  font-weight: 400;
 }
 
 $bg-dark: #171717;
