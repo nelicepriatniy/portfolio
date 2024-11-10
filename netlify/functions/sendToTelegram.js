@@ -1,10 +1,10 @@
-// sendToTelegram.js
-
 const BOT_TOKEN = '7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM';
 const CHAT_ID = '-4547412724';
-const fetch = require('node-fetch');
 
 exports.handler = async (event) => {
+  // Динамический импорт node-fetch
+  const fetch = (await import('node-fetch')).default;
+
   try {
     const { name, contact, message } = JSON.parse(event.body);
 
@@ -37,7 +37,7 @@ exports.handler = async (event) => {
       }
     );
 
-    // Проверка на успешность отправки сообщения в Telegram
+    // Проверка успешности отправки сообщения в Telegram
     if (!telegramResponse.ok) {
       const errorText = await telegramResponse.text();
       return {
@@ -46,14 +46,12 @@ exports.handler = async (event) => {
       };
     }
 
-    // Возвращаем успешный JSON-ответ
+    // Успешный ответ
     return {
       statusCode: 200,
       body: JSON.stringify({ success: true, message: 'Message sent to Telegram' }),
     };
-
   } catch (error) {
-    // Логирование ошибки и возврат JSON-ответа с ошибкой
     console.error('Error in sendToTelegram:', error);
     return {
       statusCode: 500,
