@@ -78,19 +78,35 @@ function ContactForm({heading,
         //   setStatus('Ошибка сети.');
         // }
 
-          const response = await fetch('/.netlify/functions/sendToTelegram', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-          });
+          // const response = await fetch('/.netlify/functions/sendToTelegram', {
+          //   method: 'POST',
+          //   headers: {
+          //     'Content-Type': 'application/json',
+          //   },
+          //   body: JSON.stringify(formData),
+          // });
 
-          const result = await response.json();
-          if (result.success) {
-            console.log('Message sent successfully');
-          } else {
-            console.error('Failed to send message:', result.error);
+          // const result = await response.json();
+          // if (result.success) {
+          //   console.log('Message sent successfully');
+          // } else {
+          //   console.error('Failed to send message:', result.error);
+          // }
+          try {
+            const response = await fetch('/.netlify/functions/sendToTelegram', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+            if (result.success) {
+              console.log('Message sent successfully');
+            } else {
+              console.error('Failed to send message:', result.error);
+            }
+          } catch (error) {
+            console.error('Network or server error:', error);
           }
       } else if(formData.name == '' && formData.contact == '') {
         setIsEmptyName([s.red].join(' '))
