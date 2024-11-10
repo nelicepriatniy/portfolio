@@ -39,6 +39,8 @@ function Contacts({activeIndex, numOfSlide, data}: Props) {
         </div>
         <div className={s.contactFormContainer}>
           <ContactForm  isDesk={true}
+                        sucsessMessage={data.sucsessMessage}
+                        errorMessage={data.errorMessage}
                         heading={data.formHeading} 
                         name={data.formName} 
                         contact={data.formContact} 

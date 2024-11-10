@@ -11,7 +11,9 @@ interface Props {
   button: string
   policy: string
   policyName: string
-  isDesk: boolean
+  isDesk: boolean,
+  sucsessMessage: string,
+  errorMessage: string,
 }
 
 
@@ -28,7 +30,9 @@ function ContactForm({heading,
   button,
   policy,
   policyName,
-  isDesk
+  isDesk,
+  sucsessMessage,
+  errorMessage
 } : Props) {
     const [isEmptyName, setIsEmptyName] = useState([s.normal].join(' '));
     const [isEmptycontact, setIsEmptycontact] = useState([s.normal].join(' '));
@@ -78,11 +82,14 @@ function ContactForm({heading,
           
           if (result.success) {
             console.log('Message sent successfully');
+            setStatus(sucsessMessage)
           } else {
             console.error('Failed to send message:', result.error);
+            setStatus(errorMessage)
           }
         } catch (error) {
           console.error('Network or server error:', error);
+          setStatus('Network or server error')
         }
       } else if(formData.name == '' && formData.contact == '') {
         setIsEmptyName([s.red].join(' '))

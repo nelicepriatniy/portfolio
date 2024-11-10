@@ -108,10 +108,10 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
           <SwiperSlide>
             <Contacts data={data.contacts} activeIndex={activeSlideIndex} numOfSlide={2} />
           </SwiperSlide>
-          {isScreenSmall && 
+          {isScreenSmall && (
           <SwiperSlide >
             <ContactsMobForm data={data.contacts} activeIndex={activeSlideIndex} numOfSlide={3} />
-          </SwiperSlide>
+          </SwiperSlide>)
           }
         </Swiper>
     </ThemeProvider>

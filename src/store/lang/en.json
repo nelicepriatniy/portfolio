@@ -109,7 +109,9 @@
     "formMessage": "your message",
     "formButton": "Submit",
     "formPolicy": "agree width ",
-    "policyName": "private policy"
+    "policyName": "private policy",
+    "sucsessMessage": "Message sent successfully",
+    "errorMessage": "Failed to send message try again later"
   },
   "keysesPage": {
     "heading": "keyses",

@@ -25,6 +25,8 @@ function ContactsMobForm({activeIndex, numOfSlide, data}: Props) {
       <div className={s.container + ' container'}>
         <div className={s.contactFormContainer}>
           <ContactForm  isDesk={false}
+                        sucsessMessage={data.sucsessMessage}
+                        errorMessage={data.errorMessage}
                         heading={data.formHeading} 
                         name={data.formName} 
                         contact={data.formContact} 
