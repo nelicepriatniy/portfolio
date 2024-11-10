@@ -60,7 +60,7 @@ function ContactForm({heading,
         setIsEmptyName([s.normal].join(' '))
         setIsEmptycontact([s.normal].join(' '))
         try {
-          const response = await fetch('/api/sendToTelegram', {
+          const response = await fetch('https://wyacheslav.netlify.app/api/sendToTelegram', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
