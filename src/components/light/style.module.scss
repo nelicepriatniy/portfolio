@@ -1,0 +1,26 @@
+@import '../../app/variables.scss';
+
+.light {
+  filter: blur(635rem);
+  background: var(--bg-color-second);
+  opacity:.1;
+  border-radius: 177rem;
+  width: 354rem;
+  height: 354rem;
+  position: fixed;
+  transition: all .7s ease;
+  transition-delay: $dellay;
+  &.num0 {
+    top: -97rem;
+    left: 1480rem;
+    
+  }
+  &.num1 {
+    top: 270rem;
+    left: 790rem;
+  }
+  &.num2 {
+    top: 176rem;
+    left: 320rem;
+  }
+}

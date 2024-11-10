@@ -1,0 +1,151 @@
+@import '../../app/variables.scss';
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 18rem;
+  border-radius: 3rem;
+  width: 350rem;
+  height: 318rem;
+  transition: all .4s ease;
+  cursor: pointer;
+  padding-top: 46rem;
+  position: relative;
+  &.active {
+    width: 453rem;
+    padding-top: 0;
+    transition-delay: 0s;
+    .btm {
+      opacity: 1;
+      width: 350rem;
+    }
+    .topInfo {
+      height: 118rem;
+    }
+  }
+}
+.top {
+  position: relative;
+  width: 100%;
+}
+.img {
+  width: 100%;
+  height: 100%;
+}
+.topInfo {
+  width: 100%;
+  background: linear-gradient(0deg, #0e0e0e 0%, rgba(14, 14, 14, 0.5) 50.9%, rgba(115, 115, 115, 0) 100%);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 14rem;
+  height: 0;
+  overflow: hidden;
+  transition: all .4s ease;
+}
+.topInfoText {
+  width: fit-content;
+  text-transform: uppercase;
+  color: var(--bg-color-allways-white);
+}
+.btm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15rem 10rem;
+  opacity: 0;
+  transition: all .4s ease;
+  width: 350rem;
+}
+.instrument {
+  border-radius: 3rem;
+  padding: 4rem 12rem;
+  font-size: 16rem;
+  text-transform: uppercase;
+  color: var(--bg-color-second);
+  background: var(--bg-light-gray);
+}
+
+.link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.notLinkedin {
+  .desk {
+    display: none;
+  }
+}
+
+.linkedin {
+  width: 100%;
+  height: fit-content;
+  .btm {
+    opacity: 1;
+  }
+  &:hover {
+    .topInfo {
+      height: 118rem;
+    }
+
+  }
+}
+
+@media (max-width: $media1920) {
+  .item {
+    max-height: 100rem;
+    overflow: hidden;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    padding-top: 0;
+    max-height: 100rem;
+    height: 100rem;
+    overflow: hidden;
+    .btm {
+      max-width: 0;
+      overflow: hidden;
+      gap: 5rem 10rem;
+      align-items: center;
+      justify-content: center;
+    }
+    &.active {
+      width: 100%;
+      max-height: 100rem;
+      .btm {
+        max-width: 200rem;
+        overflow: hidden;
+      }
+    }
+  }
+  .instrument {
+    font-size: 12rem;
+    padding: 5rem 10rem;
+    height: fit-content;
+  }
+  .topInfoText {
+    text-align: center;
+    font-size: 14rem;
+  }
+  .img {
+    object-fit: cover;
+    max-height: 100rem;
+  }
+  .linkedin {
+    flex-direction: column;
+    max-height: 100vh;
+    height: fit-content;
+    & .img {
+      max-height: 100%;
+    }
+    & .btm {
+      max-width: 100%;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+
+
+$bg-dark: #171717;
+$bg-light: #eee;
+$bg-gray: #343434;
+$bg-light-gray: #aaaaaa;
+$font-family: "Montserrat", sans-serif;
+$second-family: "Molot", sans-serif;
+$second-family: "Molot", sans-serif;
+
+$fw-dark: 200;
+$fw-light: 400;
+
+$dellay: 600ms;
+
+$media1920: 1200px;
+
+
+.light-theme {
+  --bg-color-main: #{#cfcfcf};
+  --bg-color-second: #{$bg-dark};
+  --bg-gray: #{$bg-gray};
+  --bg-light-gray: #{$bg-light-gray};
+  --font-w: #{$fw-light};
+  --bg-color-allways-white: #{$bg-light};
+}
+
+.dark-theme {
+  --bg-color-main: #{$bg-dark};
+  --bg-color-second: #{$bg-light};
+  --bg-gray: #{$bg-gray};
+  --bg-light-gray: #{$bg-gray};
+  --font-w: #{$fw-dark};
+ --bg-color-allways-whitew: #{$bg-light};
+}

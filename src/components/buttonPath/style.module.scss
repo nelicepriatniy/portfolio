@@ -1,0 +1,11 @@
+@import '../../app/variables.scss';
+
+.button {
+  padding: 0;
+  background: none;
+  cursor: pointer;
+  padding-bottom: 3rem;
+  border-bottom: 1rem solid var(--bg-color-second);
+}
+
+@media (max-width: $media1920) { }

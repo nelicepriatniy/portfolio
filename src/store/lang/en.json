@@ -1,0 +1,567 @@
+{
+  "heading": {
+    "light": "light"
+  },
+  "frontBlock": {
+    "heading": "wyacheslav"
+  },
+  "keyses": {
+    "heading": "keyses",
+    "seeAll": "See All",
+    "seeThat": "See That Keys",
+    "keyses": [
+      {
+        "id": 1,
+        "name": "STIL PRINT",
+        "desc": "The website for The leading digital printing company in Dubai that specializes in bespoke printing and packaging services to clients across the UAE",
+        "isActive": false,
+        "link": "https://stilprints.com/",
+        "img": "/keyses/keys17.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Eclipse",
+        "desc": "The website of an international business chat startup",
+        "isActive": false,
+        "link": "https://eclipse.club/",
+        "img": "/keyses/keys9.png",
+        "instuments": [
+          {
+            "name": "TS",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "React",
+            "id": 14
+          },
+          {
+            "name": "Redux",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Promo Infonet DC",
+        "desc": "Promo website for the Largest commercial data center in Estonia",
+        "isActive": false,
+        "link": "https://promo.infonetdc.com/",
+        "img": "/keyses/keys1.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      }
+
+    ]
+  },
+  "contacts": {
+    "heading": "Contacts",
+    "text": "If you are looking for a web developer to create a high-quality product or improve an existing solution, I will be happy to discuss the possibility of cooperation. Do not hesitate to follow the links provided on the site and I will be happy to offer the best solutions.",
+    "time": "from Mon. to Fri. from 9:00 AM to 9:00 PM UTC",
+    "formHeading": "Contact form",
+    "formName" : "name",
+    "formContact" : "contact method",
+    "formMessage": "your message",
+    "formButton": "Submit",
+    "formPolicy": "agree width ",
+    "policyName": "private policy"
+  },
+  "keysesPage": {
+    "heading": "keyses",
+    "text": "In this page you can see all my best keyses",
+    "keyses": [
+      {
+        "id": 1,
+        "name": "STIL PRINT",
+        "desc": "The website for The leading digital printing company in Dubai that specializes in bespoke printing and packaging services to clients across the UAE",
+        "isActive": false,
+        "link": "https://stilprints.com/",
+        "img": "/keyses/keys17.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Eclipse",
+        "desc": "The website of an international business chat startup",
+        "isActive": false,
+        "link": "https://eclipse.club/",
+        "img": "/keyses/keys9.png",
+        "instuments": [
+          {
+            "name": "TS",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "React",
+            "id": 14
+          },
+          {
+            "name": "Redux",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Promo Infonet DC",
+        "desc": "Promo website for the Largest commercial data center in Estonia",
+        "isActive": false,
+        "link": "https://promo.infonetdc.com/",
+        "img": "/keyses/keys1.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Esmee",
+        "desc": "The website of the international company for the creation of prostheses",
+        "isActive": false,
+        "link": "https://esmee.io/",
+        "img": "/keyses/keys8.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Insight",
+        "desc": "A full-fledged multi-page website of a company that creates promo videos for famous films",
+        "isActive": false,
+        "link": "https://insightmoscow.ru",
+        "img": "/keyses/keys2.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "SDS",
+        "desc": "A website for a company that creates web applications, websites, etc.",
+        "isActive": false,
+        "link": "https://sdstudio.pro",
+        "img": "/keyses/keys4.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Profenergy",
+        "desc": "A large website for the ProfEnergia electrical equipment company",
+        "isActive": false,
+        "link": "https://energiatrend.ru",
+        "img": "/keyses/keys5.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Анатомия ремонта",
+        "desc": "A large website for a repair company from Peterbugr",
+        "isActive": false,
+        "link": "https://anatomy-remonta.ru",
+        "img": "/keyses/keys6.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "PVC Arbat",
+        "desc": "website for the passport and visa center operating throughout Russia",
+        "isActive": false,
+        "link": "https://pvc-arbat.ru/",
+        "img": "/keyses/keys7.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "name": "Scandi module",
+        "desc": "A project for a company to create modular homes",
+        "isActive": false,
+        "link": "https://scandimodule.com",
+        "img": "/keyses/keys10.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 11,
+        "name": "Pvc-tourist",
+        "desc": "website for the passport and visa center operating throughout Russia",
+        "isActive": false,
+        "link": "https://pvc-tourist.ru",
+        "img": "/keyses/keys14.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 12,
+        "name": "Av-zapad",
+        "desc": "A project for a car import company from Germany",
+        "isActive": false,
+        "link": "https://av-zapad.ru",
+        "img": "/keyses/keys13.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 13,
+        "name": "baumzindech",
+        "desc": "The website of a company that sells premium equipment, a shopping cart is implemented in clean code without unnecessary libraries, payment by cards and installments, a choice of PVZ",
+        "isActive": false,
+        "link": "https://baumzindech.ru",
+        "img": "/keyses/keys15.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 14,
+        "name": "maplex",
+        "desc": "The website has been developed for the company of the Maplex Law Agency",
+        "isActive": false,
+        "link": "https://map-lex.ru",
+        "img": "/keyses/keys16.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      }
+
+    ]
+  },
+  "policy" : {
+    "firstObz": {
+      "heading" : "Privacy Policy",
+      "text" :  "We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, and protect your information."
+    }, 
+    "secondObz": {
+      "heading" : "1. Purpose of Data Collection",
+      "text" :  "We collect your personal data, such as name and contact details, for the purpose of finding new orders and providing relevant services. The information helps us better understand the needs of users and improve our service."
+    }, 
+    "thirdObz": {
+      "heading" : "2. Use of Data",
+      "text" : "The collected data is sent to our Telegram channel for further analysis and processing. This helps us respond to requests promptly and efficiently process new orders. We do not use your information for any purposes other than handling requests."
+    },
+    "fourthObz" : {
+      "heading" : "3. Security Measures",
+      "text" : "We take standard security measures to protect your data. All data we collect is transmitted through secure channels and is only stored for the duration of the session. We use modern technologies to prevent unauthorized access and data breaches. However, it is important to remember that transmitting data over the internet is never 100% secure, and we cannot guarantee absolute security." 
+    },
+    "fivthObz" : {
+      "heading" : "4. Data Sharing with Third Parties",
+      "text" : "We do not share your data with third parties. All collected data is used exclusively for internal analysis and processing within our service. Your data remains confidential and is not used for marketing purposes or shared with external organizations."
+    },
+    "sixthObz" : {
+      "heading" : "5. Data Storage",
+      "text" : "We do not store your data on our servers. All collected data is immediately sent to Telegram for further processing and analysis and is not retained in any database. This means that your data is not stored on our server after being sent and is not used for any further purposes."
+    },
+    "seventhObz" : {
+      "heading" : "Conclusion",
+      "text" : "By using our service, you agree to the terms of this privacy policy. If you have any questions or concerns about how your data is used, please feel free to contact us."
+    }
+  }
+}

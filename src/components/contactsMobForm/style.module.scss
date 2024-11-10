@@ -1,0 +1,99 @@
+@import '../../app/variables.scss';
+
+.contacts {
+  height: 100%;
+}
+.container {
+  padding: 0 60rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.contactsLeft {
+  height: 807rem;
+  width: 550rem;
+  padding-top: 65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.headingL {
+  margin-bottom: 40rem;
+  opacity: 0;
+  transition: all .4s ease;
+  transform: translateX(-60rem);
+}
+.textL {
+  margin-bottom: 80rem;
+  text-align: center;
+  opacity: 0;
+  transition: all .4s ease;
+  transform: translateX(-60rem);
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transition: all .4s ease;
+  transform: translateX(-60rem);
+}
+.listTop {
+  display: flex;
+  align-items: center;
+  gap: 20rem;
+}
+.listTopItem {
+  font-weight: 400;
+  font-size: 24rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--bg-color-second);
+  font-family: $second-family;
+}
+.listBtm {
+  margin-top: 14rem;
+}
+
+.contactFormContainer {
+  opacity: 0;
+  transition: all .4s ease;
+  transform: translateX(60rem);
+}
+
+.active {
+  .contactFormContainer, .headingL, .textL, .list {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .headingL {
+    transition-delay: $dellay + 100ms;
+  }
+  .textL {
+    transition-delay: $dellay + 150ms;
+  }
+  .list {
+    transition-delay: $dellay + 200ms;
+  }
+  .contactFormContainer {
+    transition-delay: $dellay + 300ms;
+  }
+}
+
+
+@media (max-width: $media1920) { 
+  .container {
+    padding: 0;
+  }
+
+  .contactsLeft {
+    height: fit-content;
+    padding-top: 0;
+  }
+  .listBtm {
+    text-align: center;
+    font-size: 14rem;
+  }
+}

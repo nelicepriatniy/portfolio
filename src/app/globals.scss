@@ -1,0 +1,75 @@
+@import './variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@font-face {
+  font-family: 'Molot';
+  src: url(../../public/fonts/Molot.otf);
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-size: 16rem;
+  color: var(--bg-color-second);
+  font-family: $font-family;
+}
+
+body, html {
+  font-size: calc(100vw / 1920);
+  background: var(--bg-color-main);
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.light-theme {
+  background: var(--bg-color-main);
+}
+.dark-theme {
+  background: var(--bg-color-main);
+}
+
+.container {
+  width: 1540rem;
+  margin: auto;
+}
+
+.regularText {
+  font-weight: var(--font-w);
+  font-size: 20rem;
+  line-height: 130%;
+  color: var(--bg-color-second);
+}
+
+.heading {
+  font-weight: 400;
+  font-size: 48rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--bg-color-second);
+  font-family: $second-family;
+
+}
+
+
+@media (max-width: $media1920) {
+  body, html {
+    font-size: calc(100vw / 375);
+    background: var(--bg-color-main);
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .container {
+    width: 350rem;
+  }
+  .regularText {
+    font-size: 16rem;
+  }
+  .heading {
+    font-size: 20rem;
+  }
+}

@@ -1,0 +1,123 @@
+@import '../../app/variables.scss';
+
+.keyses {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  &.active {
+    .item, .heading, .seeAllKeysesBlock, .descBlock {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .item {
+      &:nth-child(1) {
+        transition-delay: calc($dellay + 100ms) ;
+        // transition-delay: 0s;
+      }
+      &:nth-child(2) {
+        transition-delay: calc($dellay + 150ms) ;
+        // transition-delay: 0s;
+      }
+      &:nth-child(3) {
+        transition-delay: calc($dellay + 200ms) ;
+        // transition-delay: 0s;
+      }
+    }
+    .heading {
+      transition-delay: calc($dellay + 50ms) ;
+    }
+    .descBlock {
+      transition-delay: calc($dellay + 250ms) ;
+    }
+    .seeAllKeysesBlock {
+      transition-delay: calc($dellay + 350ms) ;
+
+    }
+  }
+}
+
+.item {
+  opacity: 0;
+  transform: translateY(50rem);
+  transition: all .4s ease;
+}
+
+.heading {
+  opacity: 0;
+  transition: all .4s ease;
+  transform: translateY(60rem);
+  transition-delay: 50ms;
+  margin-bottom: 50rem;
+}
+
+.descBlock {
+  transition: all .4s ease;
+  transform: translateY(60rem);
+  opacity: 0;
+  transition-delay: 250ms;
+  display: flex;
+  justify-content: center;
+  height: 100rem;
+}
+.desc {
+  max-width: 665rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: flex;
+  max-width: 100%;
+  width: 1215rem;
+  margin-bottom: 30rem;
+  gap: 30rem;
+}
+
+.seeAllKeysesBlock {
+  transition: all .4s ease;
+  transform: translateY(40rem);
+  opacity: 0;
+  transition-delay: 350ms;
+  width: 1215rem;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20rem;
+}
+
+.seeAllKeyses {
+  margin-top: 20rem;
+}
+
+.changing {
+  animation: changeDesc 1s ease;
+
+}
+
+@keyframes changeDesc {
+  0% {
+    max-height: 100rem;
+  }
+  50% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100rem;
+  }
+}
+
+@media (max-width: $media1920) {
+  .heading {
+    margin-bottom: 20rem; 
+  }
+  .wrapper {
+    flex-direction: column;
+    gap: 10rem;
+  }
+  .seeAllKeysesBlock {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+}

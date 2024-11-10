@@ -1,0 +1,237 @@
+@import '../../app/variables.scss';
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  // padding: 20rem 0;
+  height: 100vh;
+  z-index: 11;
+  width: 0;
+}
+.container {
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+.logo, .settings {
+  position: fixed;
+  z-index: 11;
+}
+.logo {
+  width: 60rem;
+  height: 60rem;
+  left: 110rem;
+  top: 20rem;
+  cursor: pointer;
+  path {
+    fill: var(--bg-color-second);
+  }
+}
+.settings {
+  right: 110rem;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 50rem;
+  top: 40rem;
+}
+.settingsItem {
+  font-weight: var(--font-w);
+  font-size: 20rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--bg-color-second);
+  cursor: pointer;
+}
+.seti, .bullets {
+  position: fixed;
+  bottom: 20rem;
+  z-index: 11;
+}
+.seti {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rem;
+  left: 110rem;
+}
+.setiLink {
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+}
+.setiSvg {
+  width: 100%;
+  height: 100%;
+  path {
+    fill: var(--bg-color-second);
+  }
+}
+.bullets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10rem;
+  right: 110rem;
+
+}
+.bulletItem {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 20rem;
+  background: var(--bg-color-second);
+  transition: all .4s ease;
+}
+.active {
+  height: 60rem;
+}
+
+.lightBlock {
+  position: relative;
+  .lightCyrc {
+    width: 0rem;
+    height: 0rem;
+    background: var(--bg-color-second);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: all .4s ease;
+  }
+  .settingsItem {
+    position: relative;
+    z-index: 2;
+    transition: all .4s ease;
+  }
+  &:hover {
+    .settingsItem {
+      color: var(--bg-color-main);
+    }
+    .lightCyrc {
+      width: 80rem;
+      height: 80rem;
+    }
+  }
+  &.clicked {
+    .lightCyrc {
+      animation: scaleSerc 2s ease;
+    }
+  }
+}
+
+.langContainer {
+  &.open {
+    .langBtm {
+      max-height: 100rem;
+    }
+  }
+}
+
+.langBtm {
+  position: absolute;
+  max-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+  padding-top: 10rem;
+  transition: all .4s ease;
+}
+
+@keyframes scaleSerc {
+  0% {
+    width: 80rem;
+    height: 80rem;
+  }
+  50% {
+    width: 300vw;
+    height: 300vw;
+    opacity: 1;
+
+  }
+  70% {
+    width: 300vw;
+    height: 300vw;
+    opacity: 0;
+  }
+  100% {
+    width: 80rem;
+    height: 80rem;
+    opacity: 0;
+  }
+}
+
+@media (max-width: $media1920) {
+  .logo {
+    width: 40rem;
+    height: 40rem;
+    left: 20rem;
+    top: 10rem;
+  }
+  .settings {
+    right: 20rem;
+    top: 10rem;
+    gap: 20rem;
+  }
+  .settingsItem {
+    font-size: 14rem;
+  }
+  .seti {
+    left: 20rem;
+    bottom: 10rem;
+    gap: 10rem;
+  }
+  .setiLink {
+    width: 20rem;
+    height: 20rem;
+  }
+  .bullets {
+    right: 20rem;
+    bottom: 10rem;
+  }
+  .bulletItem {
+    width: 5rem;
+    height: 5rem;
+    &.active {
+      height: 30rem;
+    }
+  }
+
+  .lightBlock {
+    &:hover {
+      .settingsItem {
+        color: var(--bg-color-second);
+      }
+      .lightCyrc {
+        width: 0rem;
+        height: 0rem;
+      }
+    }
+  }
+  
+
+  @keyframes scaleSerc {
+    0% {
+      width: 00rem;
+      height: 00rem;
+    }
+    50% {
+      width: 300vh;
+      height: 300vh;
+      opacity: 1;
+
+    }
+    70% {
+      width: 300vh;
+      height: 300vh;
+      opacity: 0;
+    }
+    100% {
+      width: 80rem;
+      height: 80rem;
+      opacity: 0;
+    }
+  }
+
+}
