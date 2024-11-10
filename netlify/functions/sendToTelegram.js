@@ -1,59 +1,63 @@
-const BOT_TOKEN = process.env.BOT_TOKEN;
-const CHAT_ID = process.env.CHAT_ID;
+// sendToTelegram.js
 
-if (!BOT_TOKEN || !CHAT_ID) {
-  console.error("Ошибка: Переменные окружения BOT_TOKEN или CHAT_ID не определены.");
-  throw new Error("Не удалось найти необходимые переменные окружения для Telegram API.");
-}
+const BOT_TOKEN = '7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM';
+const CHAT_ID = '-4547412724';
+const fetch = require('node-fetch');
 
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    try {
-      const { name, contact, message } = req.body;
+exports.handler = async (event) => {
+  try {
+    const { name, contact, message } = JSON.parse(event.body);
 
-      if (!name || !contact) {
-        console.error("Ошибка: Параметры 'name' или 'contact' отсутствуют.");
-        return res.status(400).json({ error: "Отсутствуют обязательные поля: name или contact." });
-      }
+    // Проверяем наличие данных
+    if (!name || !contact) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Name and contact are required fields.' }),
+      };
+    }
 
-      const text = `👤 Name: ${name}\n📞 Contact: ${contact}\n📬 Message: ${message || "No message provided"}`;
-      const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+    // Формируем текст сообщения
+    const text = `
+      New Contact Request:
+      - Name: ${name}
+      - Contact: ${contact}
+      - Message: ${message || 'No message provided'}
+    `;
 
-      const response = await fetch(url, {
+    // Отправляем сообщение в Telegram
+    const telegramResponse = await fetch(
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+      {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           chat_id: CHAT_ID,
           text,
         }),
-      });
-
-      // Обрабатываем и проверяем ответ
-      let responseData;
-      try {
-        responseData = await response.json();
-      } catch (error) {
-        const errorText = await response.text(); // Если ответ не JSON, то читаем текст
-        console.error("Ошибка формата ответа от Telegram:", errorText);
-        return res.status(500).json({ error: "Некорректный ответ от Telegram API", details: errorText });
       }
+    );
 
-      // Проверяем статус ответа от Telegram
-      if (!response.ok) {
-        console.error("Ошибка отправки сообщения в Telegram:", responseData);
-        return res.status(500).json({ error: "Ошибка при отправке сообщения в Telegram", details: responseData });
-      }
-
-      return res.status(200).json({ message: "Сообщение успешно отправлено в Telegram" });
-
-    } catch (error) {
-      console.error("Неожиданная ошибка при отправке сообщения:", error);
-      res.status(500).json({ error: "Неожиданная ошибка при отправке сообщения" });
+    // Проверка на успешность отправки сообщения в Telegram
+    if (!telegramResponse.ok) {
+      const errorText = await telegramResponse.text();
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: `Telegram error: ${errorText}` }),
+      };
     }
-  } else {
-    res.setHeader("Allow", ["POST"]);
-    res.status(405).json({ error: "Метод не поддерживается. Используйте POST." });
+
+    // Возвращаем успешный JSON-ответ
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ success: true, message: 'Message sent to Telegram' }),
+    };
+
+  } catch (error) {
+    // Логирование ошибки и возврат JSON-ответа с ошибкой
+    console.error('Error in sendToTelegram:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: `Server error: ${error.message}` }),
+    };
   }
-}
+};
