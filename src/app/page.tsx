@@ -11,7 +11,6 @@ import Keyses from '@/components/keyses/Keyses';
 import Contacts from '@/components/contacts/Contacts';
 import Light from '@/components/light/Light';
 import { ThemeProvider } from './ThemeContext';
-import { useParams } from 'next/navigation';
 
 import dataEn from '@/store/lang/en.json'
 import dataRu from '@/store/lang/ru.json'

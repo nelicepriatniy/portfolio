@@ -16,6 +16,7 @@
 $bg-dark: #171717;
 $bg-light: #eee;
 $bg-gray: #343434;
+$bg-light-second: #cfcfcf;
 $bg-light-gray: #aaaaaa;
 $font-family: "Montserrat", sans-serif;
 $second-family: "Molot", sans-serif;
@@ -30,7 +31,7 @@ $media1920: 1200px;
 
 
 .light-theme {
-  --bg-color-main: #{#cfcfcf};
+  --bg-color-main: #{$bg-light-second};
   --bg-color-second: #{$bg-dark};
   --bg-gray: #{$bg-gray};
   --bg-light-gray: #{$bg-light-gray};
