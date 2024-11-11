@@ -80,6 +80,7 @@ function ContactForm({heading,
           const result = await response.json();
           
           if (result.success) {
+            setFormData({name: '', contact: '', message: ''})
             setStatus(sucsessMessage)
           } else {
             console.error('Failed to send message:', result.error);
