@@ -58,15 +58,16 @@
     opacity: 1;
     &:nth-child(2), &:nth-child(3), &:nth-child(4)  {
       transform: translateX(0);
+      transition-delay: $dellay ;
     }
     &:nth-child(2) {
-      transition-delay: calc($dellay + 150ms) ;
+      // transition-delay: calc($dellay + 150ms) ;
     }
     &:nth-child(3) {
-      transition-delay: calc($dellay + 250ms) ;
+      // transition-delay: calc($dellay + 250ms) ;
     }
     &:nth-child(4) {
-      transition-delay: calc($dellay + 350ms) ;
+      // transition-delay: calc($dellay + 350ms) ;
     }
   }
 }
