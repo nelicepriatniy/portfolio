@@ -1,45 +1,48 @@
-import { useEffect, useState, useMemo } from 'react';
-import s from './style.module.scss';
+import { useEffect, useState } from 'react';
+import s from './style.module.scss'
 import { useTheme } from '@/app/ThemeContext';
 
-interface Props {
-  text: string;
+interface props {
+  text: string,
 }
 
-function Theme({ text }: Props) {
+function Theme({text} : props) {
   const { theme, toggleTheme } = useTheme();
-  const [styleClick, setStyleClick] = useState('');
+  const [styleClick, setStyleClick] = useState([].join(' '));
+  const [themeClass, setThemeClass] = useState([s.theme].join(' '));
   const [isLoaded, setIsLoaded] = useState(false);
-
-  // Использование useMemo для классов
-  const themeClass = useMemo(() => {
-    if (theme === 'light') return s.dark;
-    if (theme === 'dark') return s.light;
-    return s.theme;  // или дефолтный класс, если тема не задана
-  }, [theme]);
-
   useEffect(() => {
+    if(theme === 'dark') {
+      setThemeClass([s.light].join(' '))
+    } else if(theme === 'light') {
+      setThemeClass([s.dark].join(' '))
+    } else {
+    }
     setIsLoaded(true);
-  }, []);
+  }, [isLoaded]);
+
 
   const changeTheme = () => {
-    setStyleClick(s.clicked);
+    setStyleClick([s.clicked].join(' '));
     setTimeout(() => {
-      toggleTheme();
+      toggleTheme()
     }, 500);
-
-    // Убираем класс по завершению
     setTimeout(() => {
-      setStyleClick(s.notClicked);
+      if(theme === 'light') {
+        setThemeClass([s.light].join(' '))
+      } else if(theme === 'dark') {
+        setThemeClass([s.dark].join(' '))
+      }
+      setStyleClick([s.notClicked].join(' '));
     }, 2500);
-  };
+  }
 
-  return (
-    <div className={`${s.lightBlock} ${styleClick} ${themeClass}`}>
-      <p className={s.settingsItem} onClick={changeTheme}>{text}</p>
+  return ( 
+    <div className={s.lightBlock + ' ' + styleClick + ' ' + themeClass}>
+      <p className={s.settingsItem}  onClick={changeTheme}>{text}</p>
       <div className={s.lightCyrc}></div>
     </div>
-  );
+   );
 }
 
 export default Theme;
