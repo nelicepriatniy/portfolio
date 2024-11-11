@@ -11,36 +11,36 @@ function Theme({text} : props) {
   const [styleClick, setStyleClick] = useState([].join(' '));
   const [themeClass, setThemeClass] = useState([s.theme].join(' '));
   const [isLoaded, setIsLoaded] = useState(false);
-  useEffect(() => {
-    if(theme === 'dark') {
-      setThemeClass([s.light].join(' '))
-    } else if(theme === 'light') {
-      setThemeClass([s.dark].join(' '))
-    } else {
-    }
+  // useEffect(() => {
+  //   if(theme === 'dark') {
+  //     setThemeClass([s.light].join(' '))
+  //   } else if(theme === 'light') {
+  //     setThemeClass([s.dark].join(' '))
+  //   } else {
+  //   }
     
-    setIsLoaded(true);
-  }, []);
+  //   setIsLoaded(true);
+  // }, []);
 
 
-  const changeTheme = () => {
-    setStyleClick([s.clicked].join(' '));
-    setTimeout(() => {
-      toggleTheme()
-    }, 500);
-    setTimeout(() => {
-      if(theme === 'light') {
-        setThemeClass([s.light].join(' '))
-      } else if(theme === 'dark') {
-        setThemeClass([s.dark].join(' '))
-      }
-      setStyleClick([s.notClicked].join(' '));
-    }, 2500);
-  }
+  // const changeTheme = () => {
+  //   setStyleClick([s.clicked].join(' '));
+  //   setTimeout(() => {
+  //     toggleTheme()
+  //   }, 500);
+  //   setTimeout(() => {
+  //     if(theme === 'light') {
+  //       setThemeClass([s.light].join(' '))
+  //     } else if(theme === 'dark') {
+  //       setThemeClass([s.dark].join(' '))
+  //     }
+  //     setStyleClick([s.notClicked].join(' '));
+  //   }, 2500);
+  // }
 
   return ( 
     <div className={s.lightBlock + ' ' + styleClick + ' ' + themeClass}>
-      <p className={s.settingsItem}  onClick={changeTheme}>{text}</p>
+      <p className={s.settingsItem}  >{text}</p>
       <div className={s.lightCyrc}></div>
     </div>
    );
