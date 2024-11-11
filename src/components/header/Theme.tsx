@@ -11,13 +11,23 @@ function Theme({text} : props) {
   // const {styleClick, setStyleClick} = useState('')
   const [styleClick, setStyleClick] = useState([].join(' '));
   const [themeClass, setThemeClass] = useState([s.theme].join(' '));
-
-  useEffect(()=>{
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
     if(theme === 'light') {
+      setThemeClass([s.dark].join(' '))
+      console.log('light');
     } else if(theme === 'dark') {
+      setThemeClass([s.light].join(' '))
+      console.log('dark');
+    } else {
+      console.log('error');
+      
     }
-    console.log(theme);
-  }, [theme])
+    console.log('redrer');
+    
+    setIsLoaded(true);
+  }, []);
+
 
   const changeTheme = () => {
     setStyleClick([s.clicked].join(' '));

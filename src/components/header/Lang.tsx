@@ -7,18 +7,10 @@ interface Props {
 }
 
 function Lang({onLangChange, currentLang} : Props) {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const changeClasses = ()=>{
-    setIsOpen(isOpen => !isOpen)
-  }
-  const closeClasses = ()=>{
-    setIsOpen(false)
-  }
-
+  const [isActive, setIsActive] = useState(false)
 
   const classes = ()=>{
-    if(isOpen) {
+    if(isActive) {
       return [s.open]
     } else {
       return[s.close]
@@ -42,8 +34,8 @@ function Lang({onLangChange, currentLang} : Props) {
   
 
   return ( 
-    <div className={s.langContainer + ' ' + classes()} onMouseLeave={closeClasses}>
-      <div className={s.langTop} onClick={changeClasses}>
+    <div className={s.langContainer + ' ' + classes()} >
+      <div className={s.langTop} >
         <p className={s.settingsItem} onClick={()=>{langChange(toggleLang())}} >{currentLang}</p>
       </div>
       {/* <div className={s.langBtm}>
