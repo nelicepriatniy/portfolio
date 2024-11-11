@@ -20,7 +20,7 @@ function Theme({text} : props) {
     }
     
     setIsLoaded(true);
-  }, [theme]);
+  }, []);
 
 
   const changeTheme = () => {
