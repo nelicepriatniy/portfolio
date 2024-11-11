@@ -14,10 +14,10 @@ function Theme({text} : props) {
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     if(theme === 'light') {
-      setThemeClass([s.dark].join(' '))
+      setThemeClass([s.light].join(' '))
       console.log('light');
     } else if(theme === 'dark') {
-      setThemeClass([s.light].join(' '))
+      setThemeClass([s.dark].join(' '))
       console.log('dark');
     } else {
       console.log('error');
