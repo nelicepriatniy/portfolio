@@ -15,7 +15,7 @@
 }
 
 .headingText, .subText {
-  transition: all .6s ease;
+  transition: all .3s ease;
 
 }
 .headingText {
@@ -35,19 +35,16 @@
     top: 155rem;
     right: 65rem;
     transform: translateX(100rem);
-    // transition-delay: calc($dellay + 150ms) ;
   }
   &:nth-child(3) {
     right: 305rem;
     top: 175rem;
     transform: translateX(-100rem);
-    // transition-delay: calc($dellay + 200ms) ;
   }
   &:nth-child(4) {
     right: 144rem;
     top: 200rem;
     transform: translateX(100rem);
-    // transition-delay: calc($dellay + 250ms) ;
   }
 }
 
