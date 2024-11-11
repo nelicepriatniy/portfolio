@@ -13,8 +13,8 @@ function Theme({ text }: Props) {
 
   // Использование useMemo для классов
   const themeClass = useMemo(() => {
-    if (theme === 'dark') return s.dark;
-    if (theme === 'light') return s.light;
+    if (theme === 'light') return s.dark;
+    if (theme === 'dark') return s.light;
     return s.theme;  // или дефолтный класс, если тема не задана
   }, [theme]);
 
