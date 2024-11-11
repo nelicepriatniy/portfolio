@@ -99,7 +99,7 @@ class KeysBlock extends React.Component<Props, KeysBlockState> {
                           link={el.link} 
                           instuments={el.instuments} 
                           img={el.img}
-                          onItemClick={()=>{console.log('keys clicked');}}
+                          onItemClick={()=>{ }}
                         />
                       </div>
                   )

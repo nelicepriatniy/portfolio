@@ -43,7 +43,6 @@ function ContactForm({heading,
     const handleChange = (e : any) => {
       const { name, value } = e.target;
       setFormData({ ...formData, [name]: value });
-      console.log(formData);
     };
 
     const setMobClass = () =>{
@@ -81,7 +80,6 @@ function ContactForm({heading,
           const result = await response.json();
           
           if (result.success) {
-            console.log('Message sent successfully');
             setStatus(sucsessMessage)
           } else {
             console.error('Failed to send message:', result.error);

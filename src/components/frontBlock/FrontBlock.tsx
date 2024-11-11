@@ -29,15 +29,12 @@ class FrontBlock extends React.Component<Props, FrontBlockState> {
   }
 
   classBlock(activeIndex: number, numOfSlide: number){
-    console.log(this.state);
     
   }
 
   
 
   componentDidMount() {
-    console.log("BOT_TOKEN:", process.env.BOT_TOKEN);
-    console.log("CHAT_ID:", process.env.CHAT_ID);
     this.classBlock = (activeIndex: number, numOfSlide: number)=>{
       let classes = [s.active].join(' ')
           if(activeIndex === numOfSlide) {

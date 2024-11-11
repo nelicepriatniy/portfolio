@@ -8,25 +8,19 @@ interface props {
 
 function Theme({text} : props) {
   const { theme, toggleTheme } = useTheme();
-  // const {styleClick, setStyleClick} = useState('')
   const [styleClick, setStyleClick] = useState([].join(' '));
   const [themeClass, setThemeClass] = useState([s.theme].join(' '));
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
-    if(theme === 'light') {
+    if(theme === 'dark') {
       setThemeClass([s.light].join(' '))
-      console.log('light');
-    } else if(theme === 'dark') {
+    } else if(theme === 'light') {
       setThemeClass([s.dark].join(' '))
-      console.log('dark');
     } else {
-      console.log('error');
-      
     }
-    console.log('redrer');
     
     setIsLoaded(true);
-  }, []);
+  }, [theme]);
 
 
   const changeTheme = () => {

@@ -35,7 +35,6 @@ export default function Home() {
     }, 700);
     setTimeout(() => {
       setIsActiveKeyses(true)
-      console.log(isActiveKeyses);
     }, 1000);
     
   }
@@ -45,12 +44,10 @@ export default function Home() {
       setLang(storedLang);
     }
     if (typeof window !== 'undefined' && !localStorage.getItem('language')) {
-      console.log(localStorage.getItem('language'));
       
       const locale = navigator.language;
       const language = locale.split('-')[0];
       setLang(language); // Устанавливаем язык браузера
-      console.log(localStorage.getItem('language'));
 
     }
   }, []);

@@ -52,12 +52,10 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
       setLang(storedLang);
     }
     if (typeof window !== 'undefined' && !localStorage.getItem('language')) {
-      console.log(localStorage.getItem('language'));
       
       const locale = navigator.language;
       const language = locale.split('-')[0];
       setLang(language); // Устанавливаем язык браузера
-      console.log(localStorage.getItem('language'));
     }
 
 
@@ -85,7 +83,7 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
 
   return (
     <ThemeProvider>
-        <Header texts={data.heading} currentLang={lang} onLangChange={setLangLocal} onLogoClick={()=>{console.log('logo clicked');}} current={currentSlides} activeIntex={activeSlideIndex} />
+        <Header texts={data.heading} currentLang={lang} onLangChange={setLangLocal} onLogoClick={()=>{ }} current={currentSlides} activeIntex={activeSlideIndex} />
         <Light slide={activeSlideIndex} current={currentSlides} />
         <Swiper
           className={s.slider}
