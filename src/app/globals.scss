@@ -50,6 +50,137 @@ body, html {
 
 }
 
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg-dark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.page-loading {
+  // display: block;
+  opacity: 1;
+  visibility: visible;
+  transition: all .8s ease;
+}
+
+.page-loaded  {
+  // display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .8s ease;
+}
+
+//кастомный прелоадер старт
+
+.loader {
+  position: absolute;
+  
+  .lines {
+    width: 80px;
+    height: 40px;
+    position: absolute;
+    
+    .line {
+      width: 80px;
+      height: 10px;
+      background-color: #fff;
+      position: absolute;
+      clip: rect(0, 0, 20px, 0);
+      
+      &.line-1 {
+        top: 0;
+        animation: slide 2s ease 0s infinite;
+      }
+      
+      &.line-2 {
+        top: 15px;
+        animation: slide 2s ease 0.25s infinite;
+          
+      }
+      
+      &.line-3 {
+        top: 30px;
+        animation: slide 2s ease 0.5s infinite;
+      }
+    }
+  }
+  
+  .loading-text {
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    font-size: 13px;
+    font-family: sans-serif;
+    letter-spacing: 3px;
+    line-height: 10px;
+    height: 10px;
+    animation: fade 1s ease 0s infinite;
+  }
+}
+
+@keyframes slide {
+  0% {
+    clip: rect(0, 0, 20px, 0);
+  }
+  
+  30% {
+    clip: rect(0, 80px, 20px, 0);
+  }
+  
+  50% {
+    clip: rect(0, 80px, 20px, 0);
+  }
+  
+  80% {
+    clip: rect(0, 80px, 20px, 80px);
+  }
+  
+  100% {
+    clip: rect(0, 80px, 20px, 80px);
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  
+  50% {
+    opacity: 0;
+  }
+  
+  100% {
+    opacity: 1;
+  }
+}
+
+//кастомный прелоажер енд
+
 
 @media (max-width: $media1920) {
   body, html {
@@ -68,3 +199,4 @@ body, html {
     font-size: 20rem;
   }
 }
+
