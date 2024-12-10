@@ -67,12 +67,12 @@
         ]
       },
       {
-        "id": 3,
-        "name": "Promo Infonet DC",
-        "desc": "Промо-сайт для крупнейшего коммерческого центра обработки данных в Эстонии",
+        "id": 15,
+        "name": "Webvizio",
+        "desc": "Веб-сайт для крупного стартапа по управлению визуалом сайта",
         "isActive": false,
-        "link": "https://promo.infonetdc.com/",
-        "img": "/keyses/keys1.png",
+        "link": "https://webvizio.com",
+        "img": "/keyses/keys17.png",
         "instuments": [
           {
             "name": "HTML",
@@ -510,6 +510,36 @@
         "isActive": false,
         "link": "https://map-lex.ru",
         "img": "/keyses/keys16.png",
+        "instuments": [
+          {
+            "name": "HTML",
+            "id": 11
+          },
+          {
+            "name": "SCSS",
+            "id": 12
+          },
+          {
+            "name": "JS",
+            "id": 13
+          },
+          {
+            "name": "PHP",
+            "id": 14
+          },
+          {
+            "name": "Wordpress",
+            "id": 15
+          }
+        ]
+      },
+      {
+        "id": 15,
+        "name": "Webvizio",
+        "desc": "Веб-сайт для крупного стартапа по управлению визуалом сайта",
+        "isActive": false,
+        "link": "https://webvizio.com",
+        "img": "/keyses/keys17.png",
         "instuments": [
           {
             "name": "HTML",

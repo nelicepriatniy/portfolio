@@ -112,7 +112,7 @@ function Keyses({ activeIndex, numOfSlide, data }: Props) {
           {activeDesc}</p>
         </div>
       <div className={s.seeAllKeysesBlock}>
-        <a target='_blank' href={keyses[activeId - 1].link} className={'regularText'}>{data.seeThat}</a>
+        <a target='_blank' href={keyses[activeId - 1].link} className={'regularText ' + s.button}>{data.seeThat}</a>
         {/* <a href="" className={s.seeAllKeyses + ' regularText'}>See All</a> */}
         <div onClick={removeActiviti} className={s.seeAllKeyses + ' regularText'}  >
           <ButtonPath path='/keyses' text={data.seeAll} timer={800} />
