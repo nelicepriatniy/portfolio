@@ -12,11 +12,11 @@
     "keyses": [
       {
         "id": 1,
-        "name": "STIL PRINT",
-        "desc": "Веб-сайт ведущей компании по цифровой печати в Дубае, специализирующейся на услугах печати и упаковки на заказ для клиентов по всей территории ОАЭ",
+        "name": "Promo Infonet DC",
+        "desc": "Промо-сайт для крупнейшего коммерческого центра обработки данных в Эстонии",
         "isActive": false,
-        "link": "https://stilprints.com/",
-        "img": "/keyses/keys17.png",
+        "link": "https://promo.infonetdc.com/",
+        "img": "/keyses/keys1.png",
         "instuments": [
           {
             "name": "HTML",
@@ -117,36 +117,6 @@
     "heading": "Проекты",
     "text": "На этой странице указаны все лучшие работы",
     "keyses": [
-      {
-        "id": 1,
-        "name": "STIL PRINT",
-        "desc": "Веб-сайт ведущей компании по цифровой печати в Дубае, специализирующейся на услугах печати и упаковки на заказ для клиентов по всей территории ОАЭ",
-        "isActive": false,
-        "link": "https://stilprints.com/",
-        "img": "/keyses/keys17.png",
-        "instuments": [
-          {
-            "name": "HTML",
-            "id": 11
-          },
-          {
-            "name": "SCSS",
-            "id": 12
-          },
-          {
-            "name": "JS",
-            "id": 13
-          },
-          {
-            "name": "PHP",
-            "id": 14
-          },
-          {
-            "name": "Wordpress",
-            "id": 15
-          }
-        ]
-      },
       {
         "id": 2,
         "name": "Eclipse",
