@@ -81,9 +81,11 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
 
   }, []);
 
-  useEffect(() => {
-  fetch('/.netlify/functions/sendVisit');
+
+useEffect(() => {
+  fetch('/api/log');
 }, []);
+
 
 
   return (
