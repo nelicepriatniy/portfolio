@@ -32,7 +32,6 @@ function Contacts({activeIndex, numOfSlide, data}: Props) {
             <div className={s.listTop}>
               <a href="https://t.me/Nelicepriatni" target='_blank' className={s.listTopItem}>Telegram</a>
               <a href="https://vk.com/nelicepriatniy" target='_blank' className={s.listTopItem}>VK</a>
-              <a href="https://wa.me/79616136857" target='_blank' className={s.listTopItem}>whatsapp</a>
             </div>
             <p className={s.listBtm}>{data.time} </p>
           </div>

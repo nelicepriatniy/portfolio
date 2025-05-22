@@ -81,6 +81,11 @@ import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
 
   }, []);
 
+  useEffect(() => {
+  fetch('/.netlify/functions/sendVisit');
+}, []);
+
+
   return (
     <ThemeProvider>
         <Header texts={data.heading} currentLang={lang} onLangChange={setLangLocal} onLogoClick={()=>{ }} current={currentSlides} activeIntex={activeSlideIndex} />
