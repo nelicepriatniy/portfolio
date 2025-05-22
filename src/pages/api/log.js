@@ -17,9 +17,9 @@ IP: ${ip}
   const botToken = '7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM';
   const chatId = '-4547412724';
 
+
+
   console.log('Отправка в Telegram:', message);
-
-
   await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
