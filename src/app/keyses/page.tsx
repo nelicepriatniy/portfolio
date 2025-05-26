@@ -23,14 +23,12 @@ export default function Home() {
   useEffect(() => {
     async function getWpData(id: number, setter: any) {
       try {
-        const data = await fetch(
-          `http://wwwyacheslav.ru:4443/wp-json/wp/v2/pages/${id}`
-        );
-        const jsonData = await data.json();
-        setter(jsonData.acf);
-        return jsonData;
-      } catch (error) {
-        console.log(error);
+        const res = await fetch(`https://wwwyacheslav.ru:4443/wp-json/wp/v2/pages/${id}`);
+        const json = await res.json();
+        setter(json.acf);
+        
+      } catch (err) {
+        console.log(err);
       }
     }
 
