@@ -38,9 +38,10 @@ function Home() {
   useEffect(() => {
     async function getWpData(id: number, setter: any) {
       try {
-        const res = await fetch(`http://5.34.215.179/wp-json/wp/v2/pages/${id}`);
+        const res = await fetch(`https://wwwyacheslav.ru:4443/wp-json/wp/v2/pages/${id}`);
         const json = await res.json();
         setter(json.acf);
+        
       } catch (err) {
         console.log(err);
       }
@@ -132,9 +133,9 @@ function Home() {
     }
   }, [pageDataRu, pageDataEn, lang, isScreenSmall]);
 
-useEffect(() => {
-  fetch('/api/log');
-}, []);
+// useEffect(() => {
+//   fetch('/api/log');
+// }, []);
 
   const [slides] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
 

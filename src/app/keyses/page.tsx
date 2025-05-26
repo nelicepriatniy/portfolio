@@ -24,7 +24,7 @@ export default function Home() {
     async function getWpData(id: number, setter: any) {
       try {
         const data = await fetch(
-          `http://5.34.215.179/wp-json/wp/v2/pages/${id}`
+          `http://wwwyacheslav.ru:4443/wp-json/wp/v2/pages/${id}`
         );
         const jsonData = await data.json();
         setter(jsonData.acf);
