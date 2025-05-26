@@ -133,9 +133,9 @@ function Home() {
     }
   }, [pageDataRu, pageDataEn, lang, isScreenSmall]);
 
-// useEffect(() => {
-//   fetch('/api/log');
-// }, []);
+useEffect(() => {
+  fetch('/api/log');
+}, []);
 
   const [slides] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
 
