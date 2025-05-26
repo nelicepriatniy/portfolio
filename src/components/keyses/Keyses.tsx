@@ -9,12 +9,12 @@ import keys17 from '../../../public/keyses/keys17.png'
 
 
 interface map {
-  id: number
+  id: string
   name: string
   desc: string
   isActive: boolean
   link: string
-  instuments: any
+  dobavit_disczipoinu: any
   img: string
 }
 
@@ -26,35 +26,36 @@ interface Props {
 }
 
 function Keyses({ activeIndex, numOfSlide, data }: Props) {
-  const [keyses, setKeyses] = useState(data.keyses)
+  const [keyses, setKeyses] = useState(data.dobavit_kejs)
   const [classes, setClasses] = useState([].join(' '))
   const [classesDesc, setClassesDesc] = useState([].join(' '))
-  const [activeId, setActiveId] = React.useState(2)
-  const [activeDesc, setActiveDesc] = React.useState(keyses[1].desc)
+  const [activeId, setActiveId] = React.useState("2")
+  const [activeDesc, setActiveDesc] = React.useState(data.dobavit_kejs[1].desc)
 
-  
+  // debugger
   // const heading = useTransition()
 
   
 
-  const activeItemChange = (id: number) => {
+  const activeItemChange = (id: string) => {
     setClassesDesc([s.changing].join(' '))
     setActiveId(id)
     setTimeout(() => {
-      setActiveDesc(data.keyses[id - 1].desc)
+      setActiveDesc(data.dobavit_kejs[Number(id) - 1].desc)
     }, 500);
     setTimeout(() => {
       setClassesDesc([s.changingSet].join(' '))
     }, 800);
+    // debugger
   }
 
   useEffect(() => {
-    setKeyses(data.keyses)
+    setKeyses(data.dobavit_kejs)
     if (activeIndex === numOfSlide) {
       setClasses(s.active);
       setTimeout(() => {
-        setActiveDesc(data.keyses[1].desc)
-        setActiveId(2)
+        setActiveDesc(data.dobavit_kejs[1].desc)
+        setActiveId("2")
       }, 500);
     } else {
       setClasses(s.notActive);
@@ -66,23 +67,22 @@ function Keyses({ activeIndex, numOfSlide, data }: Props) {
   }
 
   
-
   return (
     <div className={s.keyses + ' container ' + classes}>
       <p className={s.heading + ' heading'}>{data.heading}</p>
       <div className={s.wrapper}>
-        {keyses.map(({ id, name, desc, isActive, link, instuments, img }: map ) => {
+        {keyses.map(({ id, name, desc, isActive, link, dobavit_disczipoinu, img }: map ) => {
           if (activeId === id) {
             return (
               <div className={s.item} key={id} >
                 <KeysItem
                   isLink={false}
-                  id={id}
+                  id={String(id)}
                   name={name}
                   desc={desc}
                   isActive={true}
                   link={link}
-                  instuments={instuments}
+                  instuments={dobavit_disczipoinu}
                   img={img}
                   onItemClick={activeItemChange}
                 />
@@ -98,7 +98,7 @@ function Keyses({ activeIndex, numOfSlide, data }: Props) {
                   desc={desc}
                   isActive={false}
                   link={link}
-                  instuments={instuments}
+                  instuments={dobavit_disczipoinu}
                   img={img}
                   onItemClick={activeItemChange}
                 />
@@ -112,7 +112,7 @@ function Keyses({ activeIndex, numOfSlide, data }: Props) {
           {activeDesc}</p>
         </div>
       <div className={s.seeAllKeysesBlock}>
-        <a target='_blank' href={keyses[activeId - 1].link} className={'regularText ' + s.button}>{data.seeThat}</a>
+        <a target='_blank' href={keyses[Number(activeId) - 1].link} className={'regularText ' + s.button}>{data.seeThat}</a>
         {/* <a href="" className={s.seeAllKeyses + ' regularText'}>See All</a> */}
         <div onClick={removeActiviti} className={s.seeAllKeyses + ' regularText'}  >
           <ButtonPath path='/keyses' text={data.seeAll} timer={800} />

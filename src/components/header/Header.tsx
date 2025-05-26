@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import s from './style.module.scss';
 import Logo from './Logo';
 import Theme from './Theme';
 import Lang from './Lang';
 
-interface texts {
-  [key: string]: string; 
-}
 
 interface HeaderProps {
   current: number;
@@ -14,10 +11,15 @@ interface HeaderProps {
   onLogoClick: any,
   onLangChange: any,
   currentLang: string,
-  texts: texts,
+  texts: string,
 }
 
+
+
 function Header({current, activeIntex, onLogoClick, onLangChange, currentLang, texts}: HeaderProps) {
+
+
+
   const renderBullest = (current: number, activeIndex: number)=>{
     const mapMass = [];
     for(let i = 0; current > i; i++) {
@@ -39,12 +41,13 @@ function Header({current, activeIntex, onLogoClick, onLangChange, currentLang, t
     ))
   }
   
+  
   return ( 
     <>
     <Logo onLogoClick={onLogoClick} path="/" />
     <div className={s.settings}>
       <Lang onLangChange={onLangChange} currentLang={currentLang} />
-      <Theme text={texts.light} />
+      <Theme text={texts} />
     </div>
     <div className={s.seti}>
       <a href="https://t.me/Nelicepriatni"  target='_blank' className={s.setiLink}>

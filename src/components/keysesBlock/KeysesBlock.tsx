@@ -9,43 +9,12 @@ interface Props {
   data: any,
 }
 
-// function KeysesBlock({ keyses } : Props) {
-//   return ( 
-//     <div className={s.block}>
-//       <div className={s.container + ' container'}>
-//         <div className={s.wrapper}>
-//           {keyses.map((el : any) => {
-//               return (
-//                 <div className={s.item} key={el.id} >
-//                   <KeysItem 
-//                     isLink={true}
-//                     id={el.id} 
-//                     name={el.name} 
-//                     desc={el.desc} 
-//                     isActive={true} 
-//                     link={el.link} 
-//                     instuments={el.instuments} 
-//                     img={el.img}
-//                     onItemClick={el.activeItemChange}
-//                   />
-//                 </div>
-//               )
-//             })}
-//         </div>
-//       </div>
-//     </div>
-//    );
-// }
-
-// export default KeysesBlock;
-
  
 interface KeysBlockState {
   classes: string,
   isActiveKeyses: boolean,
   data: any,
 }
- 
 class KeysBlock extends React.Component<Props, KeysBlockState> {
   constructor(props: Props) {
     super(props);

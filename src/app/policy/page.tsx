@@ -64,7 +64,7 @@ export default function Home() {
   return (
     <ThemeProvider>
       <main className={s.main}>
-        <Header texts={data.heading} currentLang={lang} onLangChange={setLangLocal} onLogoClick={toggleClass} current={currentSlides} activeIntex={activeSlideIndex} />
+        <Header texts={data.heading.light} currentLang={lang} onLangChange={setLangLocal} onLogoClick={toggleClass} current={currentSlides} activeIntex={activeSlideIndex} />
         <Light slide={currentSlides} current={currentSlides} />
         <SampleText isActiveKeyses={isActiveKeyses} data={data.policy.firstObz} isMain={true} />
         <SampleText isActiveKeyses={isActiveKeyses} data={data.policy.secondObz} isMain={false} />

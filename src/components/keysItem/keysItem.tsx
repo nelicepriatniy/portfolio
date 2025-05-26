@@ -13,13 +13,12 @@ interface props {
   link: string,
   instuments: instrumentProps[],
   img: any,
-  id: number,
+  id: string,
   isLink: boolean,
-  onItemClick: (id: number) => void; // Тип для функции
+  onItemClick: (id: string) => void; // Тип для функции
 }
 
 function KeysItem({name, desc, isActive, link, instuments, img, id, isLink, onItemClick}: props) {
-
   const onItemClickLocal = ()=>{
     onItemClick(id)
   }
@@ -49,7 +48,7 @@ function KeysItem({name, desc, isActive, link, instuments, img, id, isLink, onIt
   }
 
   return ( 
-    <div className={s.item + ' ' + activeClasses() + ' ' + isLinkDesk()} onClick={onItemClickLocal}>
+    <div data-id={id} className={s.item + ' ' + activeClasses() + ' ' + isLinkDesk()} onClick={onItemClickLocal}>
       {isLinkRender()}
       <div className={s.top}>
         <Image className={s.img} src={img} width={300} height={300} alt={name + 'image'} />

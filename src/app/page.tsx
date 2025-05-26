@@ -1,125 +1,184 @@
-'use client'
-import Header from '@/components/header/Header';
-import React, { use, useEffect, useState } from 'react';
-import { SwiperSlide, Swiper,  } from "swiper/react";
-import { Mousewheel, EffectFade  } from 'swiper/modules'
-import 'swiper/swiper-bundle.css';
+"use client";
 
-import s from './style.module.scss';
-import FronBlock from '@/components/frontBlock/FrontBlock';
-import Keyses from '@/components/keyses/Keyses';
-import Contacts from '@/components/contacts/Contacts';
-import Light from '@/components/light/Light';
-import { ThemeProvider } from './ThemeContext';
+import React, { useEffect, useState } from "react";
+import { SwiperSlide, Swiper } from "swiper/react";
+import { Mousewheel, EffectFade } from "swiper/modules";
+import "swiper/swiper-bundle.css";
 
-import dataEn from '@/store/lang/en.json'
-import dataRu from '@/store/lang/ru.json'
-import ContactsMobForm from '@/components/contactsMobForm/contactsMobForm';
+import s from "./style.module.scss";
+import Header from "@/components/header/Header";
+import FronBlock from "@/components/frontBlock/FrontBlock";
+import Keyses from "@/components/keyses/Keyses";
+import Contacts from "@/components/contacts/Contacts";
+import Light from "@/components/light/Light";
+import { ThemeProvider } from "./ThemeContext";
+import ContactsMobForm from "@/components/contactsMobForm/contactsMobForm";
 
-
- function Home() {
-  const [currentSlides, setCurrentSlides] = React.useState(0)
-  const [activeSlideIndex, setActiveSlideIndex] = React.useState(0)
-  const [lang, setLang] = React.useState('en')
+function Home() {
+  const [pageDataEn, setPageDataEn] = useState<any>(null);
+  const [pageDataRu, setPageDataRu] = useState<any>(null);
+  const [currentSlides, setCurrentSlides] = useState(0);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const [lang, setLang] = useState("en");
   const [isScreenSmall, setIsScreenSmall] = useState(false);
-  // const pathname = useParams();
 
-  let data;
+  const setLangLocal = (lang: string) => {
+    localStorage.setItem("language", lang);
+    setActiveSlideIndex(activeSlideIndex + 1);
 
-  if(lang === 'ru') {
-    data = dataRu
-  } else {
-    data = dataEn
-  }
-
-
-  const setLangLocal = (lang : string)=>{
-    localStorage.setItem('language', lang)
-    setActiveSlideIndex( activeSlideIndex + 1);
-    
     setTimeout(() => {
-      setLang(lang)
+      setLang(lang);
     }, 700);
 
     setTimeout(() => {
-      setActiveSlideIndex( activeSlideIndex);
+      setActiveSlideIndex(activeSlideIndex);
     }, 900);
+  };
 
-  }
   useEffect(() => {
-    const storedLang = localStorage.getItem('language');
+    async function getWpData(id: number, setter: any) {
+      try {
+        const res = await fetch(`http://5.34.215.179/wp-json/wp/v2/pages/${id}`);
+        const json = await res.json();
+        setter(json.acf);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    getWpData(6, setPageDataRu);
+    getWpData(14, setPageDataEn);
+  }, []);
+
+  useEffect(() => {
+    const storedLang = localStorage.getItem("language");
     if (storedLang) {
       setLang(storedLang);
-    }
-    if (typeof window !== 'undefined' && !localStorage.getItem('language')) {
-      
-      const locale = navigator.language;
-      const language = locale.split('-')[0];
-      setLang(language); // Устанавливаем язык браузера
+    } else {
+      const browserLang = navigator.language.split("-")[0];
+      setLang(browserLang);
     }
 
-
-    // Функция для проверки ширины экрана
     const handleResize = () => {
       setIsScreenSmall(window.innerWidth <= 1200);
     };
 
-    // Слушаем изменения размера экрана
-    window.addEventListener('resize', handleResize);
-
-    // Проверяем при монтировании компонента
+    window.addEventListener("resize", handleResize);
     handleResize();
 
-    // Убираем слушатель при размонтировании компонента
-
-    if(window.innerWidth <= 1200) {
-      setCurrentSlides(4)
-    }
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  function constructor(dataf: any): [JSX.Element[], number] {
+    const slides: JSX.Element[] = [];
+    let datal = dataf;
+    let count = 0;
 
-useEffect(() => {
-  fetch('/api/log');
-}, []);
+    if (lang === "ru") {
+      datal = pageDataRu;
+    } else {
+      datal = pageDataEn;
+    }
 
+    if (datal && datal.dobavit_blok) {
+      for (let i = 0; i < datal.dobavit_blok.length; i++) {
+        const block = datal.dobavit_blok[i];
 
+        if (block.acf_fc_layout === "main_block") {
+          slides.push(
+            <SwiperSlide key={`main_${i}`}>
+              <FronBlock activeIndex={activeSlideIndex} numOfSlide={count} />
+            </SwiperSlide>
+          );
+          count++;
+        }
+
+        else if (block.acf_fc_layout === "keysesBlock") {
+          slides.push(
+            <SwiperSlide key={`keyses_${i}`}>
+              <Keyses data={block} activeIndex={activeSlideIndex} numOfSlide={count} />
+            </SwiperSlide>
+          );
+          count++;
+        }
+
+        else if (block.acf_fc_layout === "contacts_block") {
+          slides.push(
+            <SwiperSlide key={`contacts_${i}`}>
+              <Contacts data={block} activeIndex={activeSlideIndex} numOfSlide={count} />
+            </SwiperSlide>
+          );
+          count++;
+
+          if (isScreenSmall) {
+            slides.push(
+              <SwiperSlide key={`contacts_mob_${i}`}>
+                <ContactsMobForm data={block} activeIndex={activeSlideIndex} numOfSlide={count} />
+              </SwiperSlide>
+            );
+            count++;
+          }
+        }
+      }
+    }
+
+    return [slides, count];
+  }
+
+  // Пересчитываем слайды после загрузки данных или изменения ширины
+  useEffect(() => {
+    if ((lang === "ru" && pageDataRu) || (lang === "en" && pageDataEn)) {
+      const [_, count] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
+      setCurrentSlides(count);
+    }
+  }, [pageDataRu, pageDataEn, lang, isScreenSmall]);
+
+// useEffect(() => {
+//   fetch('/api/log');
+// }, []);
+
+  const [slides] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
 
   return (
     <ThemeProvider>
-        <Header texts={data.heading} currentLang={lang} onLangChange={setLangLocal} onLogoClick={()=>{ }} current={currentSlides} activeIntex={activeSlideIndex} />
-        <Light slide={activeSlideIndex} current={currentSlides} />
-        <Swiper
-          className={s.slider}
-          direction='vertical'
-          speed={400}
-          modules={[Mousewheel, EffectFade]}
-          effect="fade"
-          mousewheel={{ enabled: true, forceToAxis: true, }} // Configuring mousewheel
-          // onSwiper={(swiper)=>{setCurrentSlides(swiper.slides.length); setActiveSlideIndex(swiper.activeIndex)}}
-          onSlideChangeTransitionStart={(swiper)=>{setActiveSlideIndex(swiper.activeIndex)}}
-          onAfterInit={(swiper)=>{setCurrentSlides(swiper.slides.length); setActiveSlideIndex(swiper.activeIndex)}}
-        >
-          <SwiperSlide>
-            <FronBlock activeIndex={activeSlideIndex} numOfSlide={0}  />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Keyses data={data.keyses} activeIndex={activeSlideIndex} numOfSlide={1} />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Contacts data={data.contacts} activeIndex={activeSlideIndex} numOfSlide={2} />
-          </SwiperSlide>
-          {isScreenSmall && (
-          <SwiperSlide >
-            <ContactsMobForm data={data.contacts} activeIndex={activeSlideIndex} numOfSlide={3} />
-          </SwiperSlide>)
-          }
-        </Swiper>
+      {(lang === "ru" && pageDataRu) && (
+        <Header
+          texts={pageDataRu.tekst_temy}
+          currentLang={lang}
+          onLangChange={setLangLocal}
+          onLogoClick={() => {}}
+          current={currentSlides}
+          activeIntex={activeSlideIndex}
+        />
+      )}
+      {(lang === "en" && pageDataEn) && (
+        <Header
+          texts={pageDataEn.tekst_temy}
+          currentLang={lang}
+          onLangChange={setLangLocal}
+          onLogoClick={() => {}}
+          current={currentSlides}
+          activeIntex={activeSlideIndex}
+        />
+      )}
+
+      <Light slide={activeSlideIndex} current={currentSlides} />
+
+      <Swiper
+        className={s.slider}
+        direction="vertical"
+        speed={400}
+        modules={[Mousewheel, EffectFade]}
+        effect="fade"
+        mousewheel={{ enabled: true, forceToAxis: true }}
+        onSlideChangeTransitionStart={(swiper) => {
+          setActiveSlideIndex(swiper.activeIndex);
+        }}
+      >
+        {slides}
+      </Swiper>
     </ThemeProvider>
   );
 }
 
-export default  Home
+export default Home;
