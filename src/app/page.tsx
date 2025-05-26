@@ -125,7 +125,6 @@ function Home() {
     return [slides, count];
   }
 
-  // Пересчитываем слайды после загрузки данных или изменения ширины
   useEffect(() => {
     if ((lang === "ru" && pageDataRu) || (lang === "en" && pageDataEn)) {
       const [_, count] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
