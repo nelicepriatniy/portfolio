@@ -58,7 +58,6 @@ function ContactForm({
       return [s.mob];
     }
   };
-  debugger;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault(); // Предотвращаем перезагрузку страницы
