@@ -1,0 +1,53 @@
+.wraper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.input {
+    background: none;
+
+
+}
+.input {
+  font-weight: var(--font-w);
+  font-size: 16rem;
+  line-height: 100%;
+  color: var(--bg-color-second);
+  border-bottom: 1rem solid var(--bg-color-second);
+  width: 500rem;
+  height: 42rem;
+  padding: 10rem 5rem;
+  background: none;
+  margin-bottom: 25rem;
+  transition: all .4s ease;
+  &::placeholder {
+    text-transform: uppercase;
+  }
+  &.red {
+    border-bottom: red 1rem solid;
+    // background: rgba(255, 0, 0, 0.028);
+  }
+}
+.stextarea {
+  height: 139rem;
+  margin-bottom: 90rem;
+  margin-top: 10px;
+  resize: none;
+}
+.submt {
+  border: 1rem solid var(--bg-color-second);
+  border-radius: 3rem;
+  width: 500rem;
+  height: 64rem;
+  background: none;
+  font-weight: var(--font-w);
+  font-size: 16rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--bg-color-second);
+  margin-bottom: 20rem;
+  cursor: pointer;
+}
