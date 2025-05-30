@@ -4,11 +4,11 @@ import ButtonPath from "../buttonPath/ButtonPath";
 
 interface Props {
   heading: string;
+  buttonsend: string;
   name: string;
   contact: string;
   message: string;
   button: string;
-  buttonsend: string;
   policy: string;
   policyName: string;
   isDesk: boolean;
@@ -24,11 +24,11 @@ interface FormData {
 
 function ContactForm({
   heading,
+  buttonsend,
   name,
   contact,
   message,
   button,
-  buttonsend,
   policy,
   policyName,
   isDesk,
@@ -50,6 +50,7 @@ function ContactForm({
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
 
   const setMobClass = () => {
     if (isDesk) {

@@ -47,6 +47,7 @@ function Contacts({activeIndex, numOfSlide, data}: Props) {
                         button={data.formButton}
                         policy={data.formPolicy}
                         policyName={data.policyName}
+                        buttonsend={data.buttonsend}
                          />
         </div>
       </div>
