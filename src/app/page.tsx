@@ -109,6 +109,8 @@ function Home() {
               <Contacts data={block} activeIndex={activeSlideIndex} numOfSlide={count} />
             </SwiperSlide>
           );
+          console.log(block);
+          
           count++;
 
           if (isScreenSmall) {

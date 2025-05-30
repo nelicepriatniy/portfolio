@@ -48,6 +48,11 @@
   text-transform: uppercase;
   color: var(--bg-color-second);
   margin-bottom: 20rem;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
 }
 .label {
   display: flex;
