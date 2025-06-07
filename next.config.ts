@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
 
   // Переменные среды
   env: {
-    WORDPRESS_API_URL: 'https://wwwyacheslav.ru:4443/wp-json',
+    WORDPRESS_API_URL: 'https://wwwyacheslav.ru:8443/wp-json',
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
   },
 

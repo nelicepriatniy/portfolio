@@ -38,7 +38,7 @@ function Home() {
   useEffect(() => {
     async function getWpData(id: number, setter: any) {
       try {
-        const res = await fetch(`https://wwwyacheslav.ru:4443/wp-json/wp/v2/pages/${id}`);
+        const res = await fetch(`https://wwwyacheslav.ru:8443/wp-json/wp/v2/pages/${id}`);
         const json = await res.json();
         setter(json.acf);
         
