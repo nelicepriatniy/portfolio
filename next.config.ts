@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'wwwyacheslav.ru',
-        port: '4443',
+        port: '8443',
         pathname: '/wp-content/uploads/**',
       },
       {
