@@ -1,0 +1,48 @@
+@use '@/app/variables.scss' as *;
+
+.item {
+  width: 100%;
+  max-width: 365rem;
+  display: flex;
+  flex-direction: column;
+  gap: 25rem;
+}
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.name {
+  font-family: $font-family;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--bg-color-second);
+}
+.desc {
+
+}
+.text {
+  font-family: $font-family;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--bg-color-second);
+}
+.link {
+  svg {
+    path {
+      fill: var(--bg-color-second);
+    }
+  }
+}
+
+@media (max-width: $media1920) {
+  .name {
+    font-size: 18rem;
+  }
+  .text {
+    font-size: 16rem;
+  }
+}

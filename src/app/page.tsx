@@ -13,6 +13,7 @@ import Contacts from "@/components/contacts/Contacts";
 import Light from "@/components/light/Light";
 import { ThemeProvider } from "./ThemeContext";
 import ContactsMobForm from "@/components/contactsMobForm/contactsMobForm";
+import Reviews from '@/components/reviews/Reviews'
 
 function Home() {
   const [pageDataEn, setPageDataEn] = useState<any>(null);
@@ -41,7 +42,7 @@ function Home() {
         const res = await fetch(`https://wwwyacheslav.ru:8443/wp-json/wp/v2/pages/${id}`);
         const json = await res.json();
         setter(json.acf);
-        
+
       } catch (err) {
         console.log(err);
       }
@@ -103,6 +104,15 @@ function Home() {
           count++;
         }
 
+        else if (block.acf_fc_layout === "rev_block") {
+          slides.push(
+            <SwiperSlide key={`keyses_${i}`}>
+              <Reviews data={block} activeIndex={activeSlideIndex} numOfSlide={count} />
+            </SwiperSlide>
+          );
+          count++;
+        }
+
         else if (block.acf_fc_layout === "contacts_block") {
           slides.push(
             <SwiperSlide key={`contacts_${i}`}>
@@ -110,7 +120,7 @@ function Home() {
             </SwiperSlide>
           );
           console.log(block);
-          
+
           count++;
 
           if (isScreenSmall) {
@@ -135,9 +145,9 @@ function Home() {
     }
   }, [pageDataRu, pageDataEn, lang, isScreenSmall]);
 
-useEffect(() => {
-  fetch('/api/log');
-}, []);
+  useEffect(() => {
+    fetch('/api/log');
+  }, []);
 
   const [slides] = constructor(lang === "ru" ? pageDataRu : pageDataEn);
 
@@ -148,7 +158,7 @@ useEffect(() => {
           texts={pageDataRu.tekst_temy}
           currentLang={lang}
           onLangChange={setLangLocal}
-          onLogoClick={() => {}}
+          onLogoClick={() => { }}
           current={currentSlides}
           activeIntex={activeSlideIndex}
         />
@@ -158,7 +168,7 @@ useEffect(() => {
           texts={pageDataEn.tekst_temy}
           currentLang={lang}
           onLangChange={setLangLocal}
-          onLogoClick={() => {}}
+          onLogoClick={() => { }}
           current={currentSlides}
           activeIntex={activeSlideIndex}
         />

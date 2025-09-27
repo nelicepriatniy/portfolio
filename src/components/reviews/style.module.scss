@@ -1,0 +1,125 @@
+@use "@/app/variables.scss" as *;
+
+.block {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+}
+
+.heading {
+  font-family: $second-family;
+  font-weight: 400;
+  font-size: 48rem;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--bg-color-second);
+  transition: all .4s ease;
+  transform: translateX(100rem);
+  opacity: 0;
+}
+
+.wrapper {
+  display: flex;
+  margin-top: 130rem;
+  width: 100%;
+  max-width: 1400rem;
+  justify-content: space-between;
+  height: 300rem;
+}
+
+
+
+
+.buttons {
+
+  width: 100%;
+  max-width: 1400rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.more {
+  font-family: $font-family;
+  font-weight: 200;
+  font-size: 20rem;
+  line-height: 130%;
+  color: var(--bg-color-second);
+  background: none;
+  border: none;
+  margin-top: 80rem;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateX(-50rem);
+  transition: all .4s ease;
+}
+.item {
+  opacity: 0;
+  transform: translateY(50rem);
+  transition: all .4s ease;
+}
+.active {
+  .more {
+    opacity: 1;
+    transform: translateX(0);
+    transition-delay: $dellay + 500ms;
+  }
+  .heading {
+    transform: translateX(0);
+    opacity: 1;
+    transition-delay: $dellay;
+  }
+  .item {
+    opacity: 1;
+    transform: translateY(0);
+    &:nth-child(1) {
+      transition-delay: $dellay + 100ms;
+    }
+    &:nth-child(2) {
+      transition-delay: $dellay + 200ms;
+    }
+    &:nth-child(3) {
+      transition-delay: $dellay + 300ms;
+    }
+  }
+
+  .wrapActive {
+    position: relative;
+    .item {
+    }
+  }
+
+  .rebuild {
+    position: relative;
+    .item {
+      transform: translateY(-50rem);
+      opacity: 0;
+      transition-delay: 0s;
+      &:nth-child(1) {
+        transition-delay: 100ms;
+      }
+      &:nth-child(2) {
+        transition-delay: 200ms;
+      }
+      &:nth-child(3) {
+        transition-delay: 300ms;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $media1920) {
+  .heading {
+    font-size: 24rem
+  }
+  .wrapper {
+    height: 170rem;
+    margin-top: 60rem;
+  }
+  .more {
+    font-size: 16rem
+  }
+}
