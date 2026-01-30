@@ -39,11 +39,6 @@ const nextConfig: NextConfig = {
     ]
   },
 
-  // Оптимизации
-  compress: true,
-  productionBrowserSourceMaps: true,
-  optimizeFonts: true,
-  swcMinify: true,
 
 
   // Переменные среды
