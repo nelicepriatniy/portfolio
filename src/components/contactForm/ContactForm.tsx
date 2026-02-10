@@ -69,7 +69,7 @@ function ContactForm({
         setIsEmptycontact([s.normal].join(" "));
         setIsSending(true);
         try {
-          const response = await fetch("/.netlify/functions/sendToTelegram", {
+          const response = await fetch("/api/sendToTelegram", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),

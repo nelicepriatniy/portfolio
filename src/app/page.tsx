@@ -23,6 +23,13 @@ function Home() {
   const [lang, setLang] = useState("en");
   const [isScreenSmall, setIsScreenSmall] = useState(false);
 
+  
+  useEffect(() => {
+    fetch("/api/sendVisit");
+  }, []);
+
+  
+
   const setLangLocal = (lang: string) => {
     localStorage.setItem("language", lang);
     setActiveSlideIndex(activeSlideIndex + 1);

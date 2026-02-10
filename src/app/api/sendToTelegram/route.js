@@ -4,8 +4,8 @@ import { NextResponse } from 'next/server';
 export async function POST(req) {
   try {
     const data = await req.json();
-    const botToken = process.env.TELEGRAM_BOT_TOKEN;
-    const chatId = process.env.TELEGRAM_CHAT_ID;
+    const botToken = "7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM";
+    const chatId = "-4547412724";
 
     // Проверяем, что botToken и chatId существуют
     if (!botToken || !chatId) {
