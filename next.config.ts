@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'wwwyacheslav.ru',
+        hostname: 'wp-admin.mivure.com',
         port: '8443',
         pathname: '/wp-content/uploads/**',
       },
@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
 
   // Переменные среды
   env: {
-    WORDPRESS_API_URL: 'https://wwwyacheslav.ru:8443/wp-json',
+    WORDPRESS_API_URL: 'https://wp-admin.mivure.com:8443/wp-json',
     NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
   },
 
