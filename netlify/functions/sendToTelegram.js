@@ -1,5 +1,5 @@
-const BOT_TOKEN = '7519536315:AAEhQX-LgrNO5-uHAXkxjnVzGmQ6M0qyAsM';
-const CHAT_ID = '-4547412724';
+const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 exports.handler = async (event) => {
   // Динамический импорт node-fetch
