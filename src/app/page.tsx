@@ -56,7 +56,7 @@ function Home() {
     }
 
     getWpData(6, setPageDataRu);
-    getWpData(14, setPageDataEn);
+    getWpData(27, setPageDataEn);
   }, []);
 
   useEffect(() => {
